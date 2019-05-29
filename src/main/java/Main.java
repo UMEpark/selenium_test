@@ -15,6 +15,7 @@ public class Main {
 
         OpenCsv openCsv = new OpenCsv();
         ArrayList<ArrayList<String>> list = openCsv.openCsv(bldgname); //CSVデータ(ファイル名：建物名)生成
+        ArrayList<ArrayList<String>> final_list = list; //listのCSVデータを格納
 
 /*        for (ArrayList<String> record : list) {
             System.out.print(record.get(0));

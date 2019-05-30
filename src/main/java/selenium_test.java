@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,25 +7,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class selenium_test {
-    public static void seleniumTest(){
+    public static void seleniumTest() throws Exception{
         try {
             System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
             WebDriver driver = new ChromeDriver();
 
-            driver.get("http://admin:admin@192.168.2.1"); //basic authentication x
+            //driver.get("http://admin:admin@192.168.2.1"); //basic authentication x
+            driver.get("http://google.com");
+            WebElement element = driver.findElement(By.name("agsbdgahsdga"));
 
-            Thread.sleep(2000);
-            driver.get("http://admin:admin@192.168.2.1/boafrm/formWlanRedirect?redirect-url=wlbasic.htm&wlan_id=0");
+            element.sendKeys("Selenium");
+            element.submit();
 
-            WebElement changeSsid = driver.findElement(By.className("text"));
+            //driver.get("http://admin:admin@192.168.2.1/boafrm/formWlanRedirect?redirect-url=wlbasic.htm&wlan_id=0");
 
-            changeSsid.clear();
-            changeSsid.sendKeys("1234");
+            //WebElement changeSsid = driver.findElement(By.xpath("/html/body/blockquote/form/table[5]/tbody/tr/td[2]/input"));
+            //changeSsid.clear();
+            //changeSsid.sendKeys("1234");
+            //changeSsid.submit();
 
             driver.close();
-
-        } catch(Exception e){
-        }
+        } catch (Exception e){}
     }
 }
 

@@ -5,7 +5,7 @@ public class OpenCsv {
     public ArrayList<ArrayList<String>> openCsv(String filename) {
         ArrayList<ArrayList<String>> data = new ArrayList<>();
         try {
-            File f = new File("C:\\Users\\outsourcing006\\Desktop\\各物件CSV", filename + ".csv");
+            File f = new File("./", filename + ".csv");
             BufferedReader p = new BufferedReader(new FileReader(f));
 
             String line; //

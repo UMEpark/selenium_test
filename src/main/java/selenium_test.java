@@ -5,28 +5,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.*;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class selenium_test {
     public static void seleniumTest(){
-            System.setProperty("webdriver.ie.driver", "./IEDriverServer.exe");
-            WebDriver driver = new InternetExplorerDriver();
+        try {
+            System.setProperty("webdriver.chrome.driver", "/home/network-18/IdeaProjects/selenium_test/src/main/java/chromedriver");
+            WebDriver driver = new ChromeDriver();
 
-            driver.get("http://admin:admin@192.168.2.1"); //basic authentication x
-            //driver.get("http://google.com");
-            //WebElement element = driver.findElement(By.name("agsbdgahsdga"));
+            driver.get("http://google.co.jp");
 
-            //element.sendKeys("Selenium");
-            //element.submit();
+            Thread.sleep(2000);
+/*
+            driver.get("http://admin:admin@192.168.2.1");
 
             driver.get("http://admin:admin@192.168.2.1/boafrm/formWlanRedirect?redirect-url=wlbasic.htm&wlan_id=0");
 
             WebElement changeSsid = driver.findElement(By.xpath("/html/body/blockquote/form/table[5]/tbody/tr/td[2]/input"));
             changeSsid.clear();
-            changeSsid.sendKeys("1234");
+            changeSsid.sendKeys("5678");
             changeSsid.submit();
-
+*/
             driver.close();
+
+        } catch(Exception e){
+
+        }
     }
 }
 

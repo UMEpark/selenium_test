@@ -26,9 +26,12 @@ public class Main {
             System.out.println(record);
         } System.out.println();
 
+        OpenShell.staticNetwork();
+
         selenium_test.seleniumTest();
 
-        System.exit(0);
+        OpenShell.dhcpNetwork();
 
+        System.exit(0);
     }
 }

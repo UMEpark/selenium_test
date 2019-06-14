@@ -17,15 +17,6 @@ public class Main {
         ArrayList<ArrayList<String>> list = openCsv.openCsv(bldgname); //CSVデータ(ファイル名：建物名)生成
         ArrayList<ArrayList<String>> final_list = list; //listのCSVデータを格納
 
-        returnPwd rtn = new returnPwd();
-
-        for (ArrayList<String> record : list) {
-            String pwd = rtn.returnPwd(record.get(0), record.get(1), record.get(2), record.get(3));
-            record.add(4, pwd);
-
-            System.out.println(record);
-        } System.out.println();
-
         OpenShell.staticNetwork();
 
         selenium_test.seleniumTest();

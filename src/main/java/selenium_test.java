@@ -13,19 +13,15 @@ public class selenium_test {
             System.setProperty("webdriver.chrome.driver", "/home/network-18/IdeaProjects/selenium_test/src/main/java/chromedriver");
             WebDriver driver = new ChromeDriver();
 
-            driver.get("http://google.co.jp");
-
             Thread.sleep(2000);
-/*
-            driver.get("http://admin:admin@192.168.2.1");
 
+            driver.get("http://admin:admin@192.168.2.1");
             driver.get("http://admin:admin@192.168.2.1/boafrm/formWlanRedirect?redirect-url=wlbasic.htm&wlan_id=0");
 
             WebElement changeSsid = driver.findElement(By.xpath("/html/body/blockquote/form/table[5]/tbody/tr/td[2]/input"));
             changeSsid.clear();
             changeSsid.sendKeys("5678");
             changeSsid.submit();
-*/
             driver.close();
 
         } catch(Exception e){

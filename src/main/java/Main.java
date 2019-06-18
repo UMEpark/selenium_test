@@ -23,6 +23,6 @@ public class Main {
 
         OpenShell.dhcpNetwork();
 
-        System.exit(0);
+        //System.exit(0);
     }
 }

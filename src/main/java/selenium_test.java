@@ -22,6 +22,7 @@ public class selenium_test {
             changeSsid.clear();
             changeSsid.sendKeys("5678");
             changeSsid.submit();
+
             driver.close();
 
         } catch(Exception e){

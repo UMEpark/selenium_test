@@ -20,8 +20,18 @@ public class selenium_test {
 
             WebElement changeSsid = driver.findElement(By.xpath("/html/body/blockquote/form/table[5]/tbody/tr/td[2]/input"));
             changeSsid.clear();
-            changeSsid.sendKeys("5678");
+            changeSsid.sendKeys("test");
             changeSsid.submit();
+
+            Thread.sleep(2000);
+
+            driver.get("http://admin:admin@192.168.2.1/boafrm/formWlanRedirect?redirect-url=wlsecurity.htm&wlan_id=0");
+            WebElement takePwd = driver.findElement(By.xpath("//*[@id=\"show_wpa_psk2_show\"]/td[2]/input"));
+            takePwd.click();
+            takePwd.getText();
+            System.out.println(takePwd);
+
+            Thread.sleep(2000);
 
             driver.close();
 

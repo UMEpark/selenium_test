@@ -17,7 +17,6 @@ public class selenium_test {
 
             driver.get("http://admin:admin@192.168.2.1");
             driver.get("http://admin:admin@192.168.2.1/boafrm/formWlanRedirect?redirect-url=wlbasic.htm&wlan_id=0");
-
             WebElement changeSsid = driver.findElement(By.xpath("/html/body/blockquote/form/table[5]/tbody/tr/td[2]/input"));
             changeSsid.clear();
             changeSsid.sendKeys("test");
@@ -26,12 +25,25 @@ public class selenium_test {
             Thread.sleep(2000);
 
             driver.get("http://admin:admin@192.168.2.1/boafrm/formWlanRedirect?redirect-url=wlsecurity.htm&wlan_id=0");
-            WebElement takePwd = driver.findElement(By(""));
+            driver.switchTo().frame("SSIDAuthMode");
+            WebElement takePwd = driver.findElement(By.xpath("//*[@id=\"show_wpa_psk2_show\"]/td[2]/input"));
             takePwd.click();
-            takePwd.getText();
-            System.out.println(takePwd);
+            String APpwd = takePwd.getAttribute("value");
+            System.out.println(APpwd);
 
             Thread.sleep(2000);
+
+            driver.get("http://admin:admin@192.168.2.1/tcpiplan.htm");
+            WebElement configIp = driver.findElement(By.xpath("//*[@id=\"route_mode_lanip\"]/td[2]/input"));
+            configIp.clear();
+            configIp.sendKeys("192.168.76.20");
+            configIp.submit();
+
+            Thread.sleep(20000);
+
+            OpenShell.dhcpNetwork();
+
+            driver.get("http://admin:admin@192.168.76.20");
 
             driver.close();
 

@@ -24,8 +24,6 @@ public class Main {
 
         selenium_test.seleniumTest();
 
-        OpenShell.dhcpNetwork();
-
         //System.exit(0);
     }
 }

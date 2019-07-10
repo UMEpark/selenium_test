@@ -5,11 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class selenium_test {
     public static void seleniumTest(){
         try {
+            OpenShell getPwd = new OpenShell();
+            String realPwd = getPwd.AdminPwd();
+            String finalUrl = "http://admin:" + realPwd + "@192.168.76.20";
+
             System.setProperty("webdriver.gecko.driver", "/home/network-18/IdeaProjects/selenium_test/src/main/java/geckodriver");
             WebDriver driver = new FirefoxDriver();
 
@@ -44,6 +47,19 @@ public class selenium_test {
             OpenShell.dhcpNetwork();
 
             driver.get("http://admin:admin@192.168.76.20");
+            driver.get("http://admin:admin@192.168.76.20/password.htm");
+            WebElement adminID = driver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[2]/td[2]/input"));
+            adminID.sendKeys("admin");
+            WebElement adminPwd = driver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[3]/td[2]/input"));
+            adminPwd.sendKeys(realPwd);
+            WebElement adminCFpwd = driver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[4]/td[2]/input"));
+            adminCFpwd.sendKeys(realPwd);
+            WebElement confirm = driver.findElement(By.xpath("/html/body/blockquote/form/table[2]/tbody/tr/td/p/input"));
+            confirm.submit();
+
+            Thread.sleep(15000);
+
+            driver.
 
             driver.close();
 
@@ -52,27 +68,3 @@ public class selenium_test {
         }
     }
 }
-
-/*
-        driver.get("http://admin:admin@192.168.2.1");
-        Thread.sleep(5000);
-        WebElement changeSsid = driver.findElement(By.name("ssid0"));
-        changeSsid.clear();
-        changeSsid.sendKeys(a[].ssid);
-        WebElement getPw = driver.findElement(By.name("pskValue0_show"));
-        getPw.click(); //비밀번호 획득
-        WebElement adminId = driver.findElement(By.name("username"));
-        adminId.clear();
-        adminId.sendKeys("admin");
-        WebElement adminPw = driver.findElement(By.name("newpass"));
-        adminPw.clear();
-        adminPw.sendKeys("pwd");
-        WebElement adminCpw = driver.findElement(By.name("confpass"));
-        adminCpw.clear();
-        adminCpw.sendKeys("pwd");
-        WebElement changeIp = driver.findElement(By.name("lan_ip"));
-        changeIp.click();
-        Thread.sleep(2000);
-        WebElement passWord = driver.findElement(By.name("user_pw"));
-        passWord.sendKeys("test");
- */

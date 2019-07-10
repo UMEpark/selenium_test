@@ -52,7 +52,7 @@ public class OpenShell {
     }
 
     public String AdminPwd(){
-        String adminPwd;
+        String adminPwd = null;
         try{
             FileReader fr = new FileReader("/home/network-18/password.txt");
             BufferedReader br = new BufferedReader(fr);

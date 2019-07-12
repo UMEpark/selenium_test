@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,24 +45,31 @@ public class selenium_test {
 
             Thread.sleep(20000);
 
+            driver.close();
+
+            System.setProperty("webdriver.gecko.driver", "/home/network-18/IdeaProjects/selenium_test/src/main/java/geckodriver");
+            WebDriver Rdriver = new FirefoxDriver();
+
             OpenShell.dhcpNetwork();
 
-            driver.get("http://admin:admin@192.168.76.20");
-            driver.get("http://admin:admin@192.168.76.20/password.htm");
-            WebElement adminID = driver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[2]/td[2]/input"));
+            Rdriver.get("http://admin:admin@192.168.76.20");
+            Rdriver.get("http://admin:admin@192.168.76.20/password.htm");
+            WebElement adminID = Rdriver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[2]/td[2]/input"));
             adminID.sendKeys("admin");
-            WebElement adminPwd = driver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[3]/td[2]/input"));
+            WebElement adminPwd = Rdriver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[3]/td[2]/input"));
             adminPwd.sendKeys(realPwd);
-            WebElement adminCFpwd = driver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[4]/td[2]/input"));
+            WebElement adminCFpwd = Rdriver.findElement(By.xpath("/html/body/blockquote/form/table[1]/tbody/tr[4]/td[2]/input"));
             adminCFpwd.sendKeys(realPwd);
-            WebElement confirm = driver.findElement(By.xpath("/html/body/blockquote/form/table[2]/tbody/tr/td/p/input"));
+            WebElement confirm = Rdriver.findElement(By.xpath("/html/body/blockquote/form/table[2]/tbody/tr/td/p/input"));
             confirm.submit();
 
             Thread.sleep(15000);
 
-            driver.
+            Rdriver.navigate().to(finalUrl);
+            WebElement auth = Rdriver.switchTo().alert();
+            System.out.println(finalUrl);
 
-            driver.close();
+            Rdriver.close();
 
         } catch(Exception e){
 

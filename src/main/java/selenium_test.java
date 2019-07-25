@@ -12,7 +12,7 @@ public class selenium_test {
         try {
             OpenShell getPwd = new OpenShell();
             String realPwd = getPwd.AdminPwd();
-            String finalUrl = "http://admin:" + realPwd + "@192.168.76.20";
+            String finalUrl = "http://admin:" + realPwd + "@192.168.76.20/basic_auth";
 
             System.setProperty("webdriver.gecko.driver", "/home/network-18/IdeaProjects/selenium_test/src/main/java/geckodriver");
             WebDriver driver = new FirefoxDriver();
@@ -66,7 +66,6 @@ public class selenium_test {
             Thread.sleep(15000);
 
             Rdriver.navigate().to(finalUrl);
-            WebElement auth = Rdriver.switchTo().alert();
             System.out.println(finalUrl);
 
             Rdriver.close();

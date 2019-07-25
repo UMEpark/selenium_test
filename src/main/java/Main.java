@@ -6,8 +6,8 @@ public class Main {
         String bldgname; //ビルの名前
 
         System.out.println("Please input information.");
-        Scanner scan = new Scanner(System.in);
-        bldgname = scan.nextLine(); //ビルの名前 入力
+        Scanner sc = new Scanner(System.in);
+        bldgname = sc.nextLine(); //ビルの名前 入力
 
         System.out.println(bldgname);
         System.out.println();

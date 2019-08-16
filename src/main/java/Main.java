@@ -15,13 +15,15 @@ public class Main {
         OpenCsv opCsv = new OpenCsv();
         ArrayList<ArrayList<String>> list = opCsv.openCsv(bldgname); //CSVデータ(ファイル名：建物名)生成
 
+        System.out.println(list);
+
 //        for(int i = 0; i < list.get(0).size(); i++){
 //
 //        }
 
-        OpenShell.staticNetwork();
+        //OpenShell.staticNetwork();
 
-        selenium_test.seleniumTest();
+        //selenium_test.seleniumTest();
 
         //System.exit(0);
     }

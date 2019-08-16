@@ -65,10 +65,15 @@ public class selenium_test {
 
             Thread.sleep(15000);
 
-            Rdriver.navigate().to(finalUrl);
+            Rdriver.close();
+
+            System.setProperty("webdriver.gecko.driver", "/home/network-18/IdeaProjects/selenium_test/src/main/java/geckodriver");
+            WebDriver RRdriver = new FirefoxDriver();
+
+            RRdriver.navigate().to(finalUrl);
             System.out.println(finalUrl);
 
-            Rdriver.close();
+            RRdriver.close();
 
         } catch(Exception e){
 

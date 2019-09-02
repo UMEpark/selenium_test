@@ -17,9 +17,9 @@ public class Main {
 
         System.out.println(list);
 
-//        for(int i = 0; i < list.get(0).size(); i++){
-//
-//        }
+        for(int i = 1; i < ; i++){
+
+        }
 
         //OpenShell.staticNetwork();
 
